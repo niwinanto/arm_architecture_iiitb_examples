@@ -33,15 +33,15 @@ __main
 			VMOV.F32 s2, #15.0 
 			VMOV.F32 s3, #1.0 
 			
-			VDIV.F32 s4, s1, s0 		; Initialized with ((x = 3) / (n = 1)).
+			VDIV.F32 s4, s1, s0 		; ((x = 5) / (n = 1)).
 			
-loop			VADD.F32 s3, s3, s4 		; result = result + id
+loop			VADD.F32 s3, s3, s4 		; rslt = rslt + id
 			VMUL.F32 s4, s4, s1 		; id = id * x
-			VADD.F32 s0, s0, s5 		; counter = counter + inc
-			VDIV.F32 s4, s4, s0 		; id = id / counter
-			VCMP.F32 s0, s2     		; Is (counter == i) ?
+			VADD.F32 s0, s0, s5 		; cntr = cntr + inc
+			VDIV.F32 s4, s4, s0 		; id = id / cntr
+			VCMP.F32 s0, s2     		; compare (cntr == i)
 			VMRS 	 APSR_nzcv, FPSCR 	; Copy FPSCR to APSR_nzcv
-			BNE 	 loop			; If (counter != i) then loop
+			BNE 	 loop			; If (cntr != i) then loop
 
 stop			B	 stop			; else stop. 
 
