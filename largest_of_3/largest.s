@@ -7,7 +7,7 @@ LARGEST_STORE		EQU 0x20000000 ;place to store largest value in memory
 		ENTRY
 		EXPORT __main
 
-__main
+__main	FUNCTION
 	MOV r0, #0	;3 registers for saving 3 number
 	MOV r1, #1	
 	MOV r2, #2
@@ -23,5 +23,6 @@ __main
 	MOVLT r4, r2
 	
 	STR r4, [r3]	;store largest to memory
-	
+stop 	B stop
+	ENDFUNC
 	END
