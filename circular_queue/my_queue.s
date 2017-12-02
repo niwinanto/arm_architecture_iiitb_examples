@@ -75,7 +75,7 @@ __main FUNCTION
 	
 	MOV r3, #0x10			;10 times dequeue
 	BL DEQ					;call dequeue
-	stop B stop
+stop    B stop
 	ENDFUNC
 	END
 	
