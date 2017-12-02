@@ -2,7 +2,7 @@
 		ENTRY
 		EXPORT __main
 			
-__main
+__main   	FUNCTION
 		MOV r1, #45
 		MOV r2, #15
 		B gcd		
@@ -13,6 +13,7 @@ loop	CMP r1, r2		;compare r1 and r2
 gcd		CMP r1, r2			;compare r1 and r1 
 		BNE loop			;jump to loop on not equal
 stop	B stop
+		ENDFUNC
 		END
 		
 		
