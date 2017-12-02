@@ -6,7 +6,7 @@ FIB_START		EQU 0x20000000
 		ENTRY
 		EXPORT __main
 
-__main
+__main	FUNCTION
 	MOV r0, #0		;make r0 and r1 0 and 1 as fibonacci starting numbers 
 	MOV r1, #1
 	LDR r3, =FIB_START
@@ -24,4 +24,6 @@ lop CMP r1, #0x0d	;check the r1 for specific fibonacci number
 	B lop
 lop1 MOV r1, #1
 	MOV r0, #0
+stop 	B stop
+	ENDFUNC
 	END
