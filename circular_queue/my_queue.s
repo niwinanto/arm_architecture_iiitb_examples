@@ -73,7 +73,7 @@ __main
 	
 	MOV r3, #0x10			;10 times dequeue
 	BL DEQ					;call dequeue
-
+	stop B stop
 	END
 	
 	
