@@ -13,7 +13,7 @@ LARGEST_STORE		EQU 0x20000000 ;place to store largest value in memory
 		ENTRY
 		EXPORT __main
 
-__main
+__main	FUNCTION
 	;ENABLE FPU
 	; CPACR is located at address 0xE000ED88
 	LDR.W   R0, =0xE000ED88
@@ -46,4 +46,5 @@ loop			VADD.F32 s3, s3, s4 		; rslt = rslt + id
 stop			B	 stop			; else stop. 
 
 ; Code ends here,
+	ENDFUNC
 	END
