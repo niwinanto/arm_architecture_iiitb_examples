@@ -10,7 +10,7 @@ LENGTH			EQU QUEUE_END - QUEUE_START
 		ENTRY
 		EXPORT __main
 
-ENQ							;Enqueue function starts here
+ENQ	FUNCTION						;Enqueue function starts here
 
 lp	CMP r2, #LENGTH			;compare queue length with r2
 	BNE lp0
@@ -30,9 +30,10 @@ lp1	STR r4, [r1]			;store queue
 
 lp2 ADD r1, r1, #4
 	B lp
+	ENDFUNC
 
 
-DEQ							;function Dequeue starts here
+DEQ	FUNCTION						;function Dequeue starts here
 
 do	CMP r2, #0				;compare for queue lenght empty
 	BNE do0
@@ -52,6 +53,7 @@ do1	SUB r2, r2, #1 			;deque operation
 
 do2 ADD r0, r0, #4 			;next register
 	B do		   			;repeat
+	ENDFUNC
 
 
 __main FUNCTION
