@@ -54,7 +54,7 @@ do2 ADD r0, r0, #4 			;next register
 	B do		   			;repeat
 
 
-__main
+__main FUNCTION
 	LDR r0, =QUEUE_START	;Head of queue
 	LDR r1, =QUEUE_START	;Tail of queue
 	LDR r8, =QUEUE_END		;End address of queue
@@ -74,6 +74,7 @@ __main
 	MOV r3, #0x10			;10 times dequeue
 	BL DEQ					;call dequeue
 	stop B stop
+	ENDFUNC
 	END
 	
 	
