@@ -143,7 +143,7 @@ int codeGen(){
             //
         }
         else{
-            printf("\n\tPOP {R0, R1}\n");
+            printf("\n\tPOP {R1, R0}\n");
             if(postfix[i] == '+'){
                 printf(";Addition operation\n");
                 printf("\tADD R0, R0, R1\n");
@@ -163,7 +163,7 @@ int codeGen(){
             else if(postfix[i] == '/'){
                 printf(";Division operation\n");
                 printf("\tCMP R1, #0\n\tBEQ stop\n");
-                printf("\tDIV R0, R0, R1\n");
+                printf("\tUDIV R0, R0, R1\n");
                 printf("\tPUSH {R0}\n");
             }
             else{
