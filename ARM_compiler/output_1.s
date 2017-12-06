@@ -1,5 +1,3 @@
-;input the expression
-;1/(2-2) 
 ;expression parsed is: 1/(2-2)
 ;It is a balanced expression
 ;postfix form is : 1,2,2,-,/,
@@ -20,12 +18,12 @@ __main FUNCTION
 	MOV R0, #2
 	PUSH {R0}
 
-	POP {R0, R1}
+	POP {R1, R0}
 ;Substraction operation
 	SUB R0, R0, R1
 	PUSH {R0}
 
-	POP {R0, R1}
+	POP {R1, R0}
 ;Division operation
 	CMP R1, #0
 	BEQ stop
@@ -35,3 +33,4 @@ __main FUNCTION
 stop 	B stop
 	ENDFUNC
 	END
+;****************CODE ENDS********************
